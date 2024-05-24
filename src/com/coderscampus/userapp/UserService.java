@@ -31,7 +31,7 @@ public class UserService {
 //		String dataFile = "data.txt";
 		
 		//array for data.txt to items from file
-		ArrayList<String> dataList = new ArrayList<>();
+		ArrayList<String[]> dataList = new ArrayList<>();
 
 		BufferedReader fileReader = null;
 		try {
@@ -45,7 +45,7 @@ public class UserService {
 				System.out.println(dataSplit);
 				System.out.println();
 				System.out.println(dataLine);
-				dataList.add(dataLine);
+				dataList.add(dataSplit);
 			}
 
 		} catch (FileNotFoundException e) {
@@ -66,11 +66,15 @@ public class UserService {
 			}
 		}
 		
-		String[] dataArray = dataList.toArray(new String[0]);
+		String[][] dataArray = new String[dataList.size()][];
+		dataList.toArray(dataArray);
 		
 		
-		for (String data : dataArray) {
-			System.out.println(data);
+		for (String[] data : dataArray) {
+			for (String item : data) {
+				System.out.println(item + " ");
+			}
+			System.out.println();
 			
 		}
 
