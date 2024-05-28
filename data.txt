@@ -1,4 +1,4 @@
-test@email.com,passwordTest!1,Test User
-another@user.com,asdfasdf,Another User
-john.doe@mydomain.net,Hdk398jf!,John Doe
-jane.doe@myotherdomain.com,sunrise-sunset,Jane Doe
+"name:Test User,username:test@email.com,password:passwordTest!1"
+"name:Another User,username:another@user.com,password:asdfasdf"
+"name:John Doe,username:john.doe@mydomain.net,password:Hdk398jf!"
+"name:Jane Doe,username:jane.doe@myotherdomain.com,password:sunrise-sunset"
