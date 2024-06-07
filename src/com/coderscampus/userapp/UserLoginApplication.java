@@ -22,9 +22,9 @@ public class UserLoginApplication {
 		String inputPassword = null;
 		int numOfAttempts = 0;
 
-		while (numOfAttempts < 5){
+		while (numOfAttempts < 6){
 
-			if (numOfAttempts == 4) {
+			if (numOfAttempts == 5) {
 				System.out.println("Too many failed login attempts, you are now locked out.");
 				break;
 
@@ -54,6 +54,7 @@ public class UserLoginApplication {
 				}
 			}
 		}
+		System.out.println("Game Over, Thanks for Playing!!!");
 
 		scanner.close();
 
