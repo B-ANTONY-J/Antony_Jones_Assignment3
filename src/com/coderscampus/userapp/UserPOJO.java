@@ -16,7 +16,6 @@ public class UserPOJO {
         this.name = name;
     }
 
-    // Getters
     public String getUsername() {
         return username;
     }
@@ -30,20 +29,27 @@ public class UserPOJO {
     }
 
     
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
 
+	public UserPOJO(int number) {
+		this.failedLogins = number;
+	}
+	
 	public int getFailedLogins() {
+		System.out.println("Too many failed login attempts, you are now locked out.");
 		return failedLogins;
 	}
 
 	public void setFailedLogins(int failedLogins) {
 		this.failedLogins = failedLogins;
+	}
+	
+	public String toString() {
+		return "User{" +
+				"username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", name='" + name + '\'' +
+				", failedLogins='" + failedLogins + '\'' +
+				'}';
 	}
 }
 

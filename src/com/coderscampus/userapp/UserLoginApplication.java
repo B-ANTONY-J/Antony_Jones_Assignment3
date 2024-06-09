@@ -10,22 +10,25 @@ import java.util.Scanner;
 
 public class UserLoginApplication {
 
+	
 	public static void main(String[] args) {
 		UserService userService = new UserService();
-		System.out.println("FIX IT PLEAASE");
+		
 		List<UserPOJO> users = userService.readUsersFromFile("data.txt");
 
-//	        UserPOJO userGet = new UserPOJO(String, String password, String name);
+	    UserPOJO failedLogins = new UserPOJO(1);
+	    
 		Scanner scanner = new Scanner(System.in);
 
 		String inputUsername = null;
 		String inputPassword = null;
+		
 		int numOfAttempts = 0;
+		failedLogins.setFailedLogins(numOfAttempts);
+		
+		while (true){
 
-		while (numOfAttempts < 6){
-
-			if (numOfAttempts == 5) {
-				System.out.println("Too many failed login attempts, you are now locked out.");
+			if (failedLogins.getFailedLogins() == 5) {
 				break;
 
 			} else {
@@ -34,12 +37,13 @@ public class UserLoginApplication {
 				inputUsername = scanner.nextLine().trim();
 
 				System.out.println("Enter password:");
-				inputPassword = scanner.nextLine().trim().toLowerCase();
+				inputPassword = scanner.nextLine().trim();
 
 
 				boolean matchFound = false;
 
 				for (UserPOJO user : users) {
+					//ignores the case of the input username
 					if (user.getUsername().equalsIgnoreCase(inputUsername)
 							&& user.getPassword().equals(inputPassword)) {
 						matchFound = true;
@@ -50,6 +54,8 @@ public class UserLoginApplication {
 
 				if (!matchFound) {
 					System.out.println("Invalid login, please try again.");
+					System.out.println();
+					failedLogins.setFailedLogins(numOfAttempts);
 					numOfAttempts++;
 				}
 			}
