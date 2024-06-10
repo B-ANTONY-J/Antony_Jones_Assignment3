@@ -12,7 +12,7 @@ public class UserPOJO {
 	
 	public UserPOJO(String username, String password, String name) {
         this.username = username;
-        this.password = password.toLowerCase();
+        this.password = password;
         this.name = name;
     }
 
@@ -35,7 +35,6 @@ public class UserPOJO {
 	}
 	
 	public int getFailedLogins() {
-		System.out.println("Too many failed login attempts, you are now locked out.");
 		return failedLogins;
 	}
 

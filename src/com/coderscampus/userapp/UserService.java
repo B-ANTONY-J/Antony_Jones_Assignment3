@@ -21,9 +21,9 @@ public class UserService {
         List<UserPOJO> users = new ArrayList<>();
 //      
        
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(filename))) {
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = fileReader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 3) {
                     String username = parts[0].trim();
@@ -38,7 +38,10 @@ public class UserService {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        } finally {
+			System.out.println("Closing file reader");
+				
+			} 
 
         return users;
     }

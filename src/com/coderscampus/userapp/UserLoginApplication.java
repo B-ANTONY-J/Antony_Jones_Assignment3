@@ -26,17 +26,20 @@ public class UserLoginApplication {
 		int numOfAttempts = 0;
 		failedLogins.setFailedLogins(numOfAttempts);
 		
+		System.out.println("User Validation with CSV File\n");
+		
 		while (true){
 
-			if (failedLogins.getFailedLogins() == 5) {
+			if (failedLogins.getFailedLogins() == 4) {
+				System.out.println("Too many failed login attempts, you are now locked out.");
 				break;
 
 			} else {
 				System.out.println();
-				System.out.println("Enter username:");
+				System.out.println("Enter Your email:");
 				inputUsername = scanner.nextLine().trim();
 
-				System.out.println("Enter password:");
+				System.out.println("Enter Your password:");
 				inputPassword = scanner.nextLine().trim();
 
 
