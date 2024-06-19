@@ -28,6 +28,7 @@ public class UserLoginApplication {
 		
 		System.out.println("User Validation with CSV File\n");
 		
+		boolean matchFound;
 		while (true){
 
 			if (failedLogins.getFailedLogins() == 4) {
@@ -43,15 +44,16 @@ public class UserLoginApplication {
 				inputPassword = scanner.nextLine().trim();
 
 
-				boolean matchFound = false;
+				matchFound = false;
 
 				for (UserPOJO user : users) {
 					//ignores the case of the input username
 					if (user.getUsername().equalsIgnoreCase(inputUsername)
 							&& user.getPassword().equals(inputPassword)) {
 						matchFound = true;
-						System.out.println("Welcome: " + user.getName() + "!!!!!");
-						break;
+						System.out.println("Welcome: " + user.getName() + "!!!!!\n");
+						System.out.println("You've Succesfully entered the correct credentials for access!!!");
+						return;
 					}
 				}
 
@@ -63,7 +65,6 @@ public class UserLoginApplication {
 				}
 			}
 		}
-		System.out.println("Game Over, Thanks for Playing!!!");
 
 		scanner.close();
 
